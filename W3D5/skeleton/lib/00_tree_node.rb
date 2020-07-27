@@ -11,6 +11,7 @@ class PolyTreeNode
     end
 
     def parent=(new_parent_node)
+        #self.parnet = parent you are making the setter itself so this is recursion
         # return nil if self.parent = nil
         old_parent = self.parent
         if old_parent != nil && old_parent.children.include?(self)
