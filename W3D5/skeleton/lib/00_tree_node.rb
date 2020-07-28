@@ -54,5 +54,9 @@ class PolyTreeNode
         nil
     end
 
+    # def inspect
+    #     @child.inspect
+    # end
+
 end
 
