@@ -1,0 +1,15 @@
+<form action="<%= users_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <!-- 
+    why set the value to @user.username?
+      - if this form is re-rendered after failing validations happens in UsersController#create), pre-populate username field 
+      - if rendering this form after invoking UsersController#new action, we created a dummy @user, so values will be nil and rendered as blank input -->
+  <label for="username">Username</label>
+  <input id="username" type="text" name="user[username]" value="<%= @user.user_name %>">
+
+  <label for="password">Password</label>
+  <input id="password" type="password" name="user[password]" value="<%= @user.password %>">
+
+  <input type="submit" value="Login">
+</form>
