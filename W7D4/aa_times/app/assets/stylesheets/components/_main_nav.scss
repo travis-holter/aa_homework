@@ -1,0 +1,99 @@
+.main-nav {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+}
+
+
+.header {
+    width: 80%;
+	margin: 0 auto;
+	font-family: $serif;
+	font-size: 8px;
+	font-weight: 200;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: $light-gray;
+}
+
+#sections-sidebar-btn {
+    border-radius: 10%;
+    padding: 5px;
+    margin: 5px;
+    align-items: center;
+}
+
+#search-modal-btn {
+    display: flex;
+    align-items: flex-start;
+    background-color: $lightest-gray;
+    border-radius: 10%;
+    padding: 5px;
+    margin: 5px;
+}
+
+#subscribe_now > span {
+    background-color: $darkest-blue;
+    border-radius: 10%;
+    padding: 5px;
+    margin: 1px;
+    color: white;
+}
+
+#login_button > span {
+    background-color: $light-blue;
+    border-radius: 10%;
+    padding: 5px;
+    margin: 1px;
+    color: white;
+}
+
+#gear_button {
+    background-color: $light-gray;
+    padding: 5px;
+    margin: 1px;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.left-nav > ul > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.right-nav > ul > li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+}
+
+.right-nav > ul > li:last-of-type {
+
+}
+
+.left-nav > ul > li:hover,
+.right-nav > ul > li:last-of-type:hover {
+
+}
+
+.left-nav ul li i {
+    // padding: 10px;
+    padding-right:10px;
+}
+
+
+.right-nav {
+    display: flex;
+    align-items: center;
+}
