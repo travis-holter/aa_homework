@@ -58,7 +58,9 @@ class SQLObject
 
   def initialize(params = {})
     # ...
-    
+    params.each do |attr_name, attr_value|
+      
+    end
   end
 
   def attributes

@@ -1,0 +1,818 @@
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE DATABASE "polls_app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (113.4ms)[0m  [1m[35mCREATE DATABASE "polls_app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4042686100896465855)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUserPollQuestionAnswerChoiceResponses (20200807191110)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying NOT NULL)[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:3
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "polls" ("id" bigserial primary key, "user_id" integer NOT NULL, "title" character varying NOT NULL)[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:9
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_polls_on_user_id" ON "polls"  ("user_id")[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:15
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "questions" ("id" bigserial primary key, "poll_id" integer NOT NULL, "qtext" character varying NOT NULL)[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:17
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_questions_on_poll_id" ON "questions"  ("poll_id")[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:23
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "answer_choices" ("id" bigserial primary key, "question_id" integer NOT NULL, "atext" character varying NOT NULL)[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:25
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_answer_choices_on_question_id" ON "answer_choices"  ("question_id")[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:31
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "responses" ("id" bigserial primary key, "user_id" integer NOT NULL, "answer_choice_id" integer NOT NULL)[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:33
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_responses_on_user_id" ON "responses"  ("user_id")[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:39
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_responses_on_answer_choice_id" ON "responses"  ("answer_choice_id")[0m
+  ↳ db/migrate/20200807191110_create_user_poll_question_answer_choice_responses.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200807191110"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-08-07 19:40:48.637897"], ["updated_at", "2020-08-07 19:40:48.637897"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(4042686100896465855)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/donaldherndon/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4042686100896465855)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexToUsers (20200807202519)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_name" ON "users"  ("name")[0m
+  ↳ db/migrate/20200807202519_add_index_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200807202519"]]
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4042686100896465855)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/donaldherndon/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (1.5ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (1.1ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 1], ["title", "foods"]]
+  ↳ db/seeds.rb:18
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:19
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["title", "religions"]]
+  ↳ db/seeds.rb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:20
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 2], ["title", "colors"]]
+  ↳ db/seeds.rb:20
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:21
+  [1m[36mPoll Create (0.4ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 4], ["title", "iPhone models"]]
+  ↳ db/seeds.rb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:22
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 5], ["title", "quests"]]
+  ↳ db/seeds.rb:22
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (1.4ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:18
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (0.6ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (0.6ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mPoll Create (0.5ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 16], ["title", "foods"]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 17], ["title", "religions"]]
+  ↳ db/seeds.rb:19
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 17], ["title", "colors"]]
+  ↳ db/seeds.rb:20
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 19], ["title", "iPhone models"]]
+  ↳ db/seeds.rb:21
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 20], ["title", "quests"]]
+  ↳ db/seeds.rb:22
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:24
+  [1m[36mPoll Load (0.2ms)[0m  [1m[34mSELECT  "polls".* FROM "polls" WHERE "polls"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:25
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (0.5ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mPoll Create (0.4ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 21], ["title", "foods"]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 22], ["title", "religions"]]
+  ↳ db/seeds.rb:19
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 22], ["title", "colors"]]
+  ↳ db/seeds.rb:20
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 24], ["title", "iPhone models"]]
+  ↳ db/seeds.rb:21
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 25], ["title", "quests"]]
+  ↳ db/seeds.rb:22
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:24
+  [1m[36mQuestion Create (0.6ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 11], ["qtext", "Whats your favorite food?"]]
+  ↳ db/seeds.rb:25
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 11], ["qtext", "Do you cook?"]]
+  ↳ db/seeds.rb:26
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 11], ["qtext", "Hot sauce?"]]
+  ↳ db/seeds.rb:27
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 12], ["qtext", "Are you religious?"]]
+  ↳ db/seeds.rb:28
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 12], ["qtext", "Does God exist?"]]
+  ↳ db/seeds.rb:29
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 12], ["qtext", "What happens when we die?"]]
+  ↳ db/seeds.rb:30
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 13], ["qtext", "Whats your favorite color?"]]
+  ↳ db/seeds.rb:31
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 14], ["qtext", "Do you iPhone?"]]
+  ↳ db/seeds.rb:32
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 14], ["qtext", "How many pages is your homescreen?"]]
+  ↳ db/seeds.rb:33
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 15], ["qtext", "What kind of quest?"]]
+  ↳ db/seeds.rb:34
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 15], ["qtext", "Wheres the princess?"]]
+  ↳ db/seeds.rb:35
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 15], ["qtext", "Wheres the beef?"]]
+  ↳ db/seeds.rb:36
+  [1m[36mAnswerChoice Load (0.9ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices"[0m
+  ↳ db/seeds.rb:38
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[36mAnswerChoice Create (0.6ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 1], ["atext", "pizza"]]
+  ↳ db/seeds.rb:39
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:40
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 1], ["atext", "avocado"]]
+  ↳ db/seeds.rb:40
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:41
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 2], ["atext", "yes"]]
+  ↳ db/seeds.rb:41
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ db/seeds.rb:42
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 2], ["atext", "no"]]
+  ↳ db/seeds.rb:42
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:43
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 3], ["atext", "Cholula"]]
+  ↳ db/seeds.rb:43
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:44
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 3], ["atext", "never"]]
+  ↳ db/seeds.rb:44
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ db/seeds.rb:45
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 3], ["atext", "I guess sometimes"]]
+  ↳ db/seeds.rb:45
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:46
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 4], ["atext", "Of course not"]]
+  ↳ db/seeds.rb:46
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:47
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 4], ["atext", "Im spiritual"]]
+  ↳ db/seeds.rb:47
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:48
+  [1m[36mAnswerChoice Create (0.6ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 4], ["atext", "Jewish"]]
+  ↳ db/seeds.rb:48
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ db/seeds.rb:49
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 4], ["atext", "Protestant"]]
+  ↳ db/seeds.rb:49
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:50
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 5], ["atext", "He must"]]
+  ↳ db/seeds.rb:50
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:51
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 5], ["atext", "someones out to get me"]]
+  ↳ db/seeds.rb:51
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ db/seeds.rb:52
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 5], ["atext", "no"]]
+  ↳ db/seeds.rb:52
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:53
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 6], ["atext", "we get our own planet"]]
+  ↳ db/seeds.rb:53
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ db/seeds.rb:54
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 6], ["atext", "idk"]]
+  ↳ db/seeds.rb:54
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ db/seeds.rb:55
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 7], ["atext", "blue"]]
+  ↳ db/seeds.rb:55
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:56
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 8], ["atext", "iYes"]]
+  ↳ db/seeds.rb:56
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ db/seeds.rb:57
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 8], ["atext", "Im not a fascist"]]
+  ↳ db/seeds.rb:57
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:58
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 9], ["atext", "1"]]
+  ↳ db/seeds.rb:58
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:59
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 9], ["atext", "2"]]
+  ↳ db/seeds.rb:59
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ db/seeds.rb:60
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 9], ["atext", "3+"]]
+  ↳ db/seeds.rb:60
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:61
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 10], ["atext", "HUGE"]]
+  ↳ db/seeds.rb:61
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ db/seeds.rb:62
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 10], ["atext", "grow turnips"]]
+  ↳ db/seeds.rb:62
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:63
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 11], ["atext", "another castle"]]
+  ↳ db/seeds.rb:63
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:64
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 11], ["atext", "this castle"]]
+  ↳ db/seeds.rb:64
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ db/seeds.rb:65
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 11], ["atext", "shes dead"]]
+  ↳ db/seeds.rb:65
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:66
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 12], ["atext", "rotting out back"]]
+  ↳ db/seeds.rb:66
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:67
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 12], ["atext", "in the cow"]]
+  ↳ db/seeds.rb:67
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ db/seeds.rb:68
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 12], ["atext", "rotting in the cow out back"]]
+  ↳ db/seeds.rb:68
+  [1m[36mResponse Load (0.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses"[0m
+  ↳ db/seeds.rb:70
+  [1m[36mAnswerChoice Load (0.2ms)[0m  [1m[34mSELECT  "answer_choices".* FROM "answer_choices" WHERE "answer_choices"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:71
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:71
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (0.6ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mPoll Create (0.5ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 26], ["title", "foods"]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 27], ["title", "religions"]]
+  ↳ db/seeds.rb:19
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 27], ["title", "colors"]]
+  ↳ db/seeds.rb:20
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 29], ["title", "iPhone models"]]
+  ↳ db/seeds.rb:21
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 30], ["title", "quests"]]
+  ↳ db/seeds.rb:22
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:24
+  [1m[36mQuestion Create (0.4ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 16], ["qtext", "Whats your favorite food?"]]
+  ↳ db/seeds.rb:25
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 16], ["qtext", "Do you cook?"]]
+  ↳ db/seeds.rb:26
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 16], ["qtext", "Hot sauce?"]]
+  ↳ db/seeds.rb:27
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 17], ["qtext", "Are you religious?"]]
+  ↳ db/seeds.rb:28
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 17], ["qtext", "Does God exist?"]]
+  ↳ db/seeds.rb:29
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 17], ["qtext", "What happens when we die?"]]
+  ↳ db/seeds.rb:30
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 18], ["qtext", "Whats your favorite color?"]]
+  ↳ db/seeds.rb:31
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 19], ["qtext", "Do you iPhone?"]]
+  ↳ db/seeds.rb:32
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 19], ["qtext", "How many pages is your homescreen?"]]
+  ↳ db/seeds.rb:33
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 20], ["qtext", "What kind of quest?"]]
+  ↳ db/seeds.rb:34
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 20], ["qtext", "Wheres the princess?"]]
+  ↳ db/seeds.rb:35
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 20], ["qtext", "Wheres the beef?"]]
+  ↳ db/seeds.rb:36
+  [1m[36mAnswerChoice Load (0.5ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices"[0m
+  ↳ db/seeds.rb:38
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" WHERE "questions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ db/seeds.rb:39
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (0.5ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mPoll Create (0.5ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 31], ["title", "foods"]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 32], ["title", "religions"]]
+  ↳ db/seeds.rb:19
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 32], ["title", "colors"]]
+  ↳ db/seeds.rb:20
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 34], ["title", "iPhone models"]]
+  ↳ db/seeds.rb:21
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 35], ["title", "quests"]]
+  ↳ db/seeds.rb:22
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:24
+  [1m[36mQuestion Create (0.4ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 21], ["qtext", "Whats your favorite food?"]]
+  ↳ db/seeds.rb:25
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 21], ["qtext", "Do you cook?"]]
+  ↳ db/seeds.rb:26
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 21], ["qtext", "Hot sauce?"]]
+  ↳ db/seeds.rb:27
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 22], ["qtext", "Are you religious?"]]
+  ↳ db/seeds.rb:28
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 22], ["qtext", "Does God exist?"]]
+  ↳ db/seeds.rb:29
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 22], ["qtext", "What happens when we die?"]]
+  ↳ db/seeds.rb:30
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 23], ["qtext", "Whats your favorite color?"]]
+  ↳ db/seeds.rb:31
+  [1m[36mQuestion Create (0.4ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 24], ["qtext", "Do you iPhone?"]]
+  ↳ db/seeds.rb:32
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 24], ["qtext", "How many pages is your homescreen?"]]
+  ↳ db/seeds.rb:33
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 25], ["qtext", "What kind of quest?"]]
+  ↳ db/seeds.rb:34
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 25], ["qtext", "Wheres the princess?"]]
+  ↳ db/seeds.rb:35
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 25], ["qtext", "Wheres the beef?"]]
+  ↳ db/seeds.rb:36
+  [1m[36mAnswerChoice Load (0.5ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices"[0m
+  ↳ db/seeds.rb:38
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 25], ["atext", "pizza"]]
+  ↳ db/seeds.rb:39
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 25], ["atext", "avocado"]]
+  ↳ db/seeds.rb:40
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 26], ["atext", "yes"]]
+  ↳ db/seeds.rb:41
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 26], ["atext", "no"]]
+  ↳ db/seeds.rb:42
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 27], ["atext", "Cholula"]]
+  ↳ db/seeds.rb:43
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 27], ["atext", "never"]]
+  ↳ db/seeds.rb:44
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 27], ["atext", "I guess sometimes"]]
+  ↳ db/seeds.rb:45
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 28], ["atext", "Of course not"]]
+  ↳ db/seeds.rb:46
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 28], ["atext", "Im spiritual"]]
+  ↳ db/seeds.rb:47
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 28], ["atext", "Jewish"]]
+  ↳ db/seeds.rb:48
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 28], ["atext", "Protestant"]]
+  ↳ db/seeds.rb:49
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 29], ["atext", "He must"]]
+  ↳ db/seeds.rb:50
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 29], ["atext", "someones out to get me"]]
+  ↳ db/seeds.rb:51
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 29], ["atext", "no"]]
+  ↳ db/seeds.rb:52
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 30], ["atext", "we get our own planet"]]
+  ↳ db/seeds.rb:53
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 30], ["atext", "idk"]]
+  ↳ db/seeds.rb:54
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 31], ["atext", "blue"]]
+  ↳ db/seeds.rb:55
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 32], ["atext", "iYes"]]
+  ↳ db/seeds.rb:56
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 32], ["atext", "Im not a fascist"]]
+  ↳ db/seeds.rb:57
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 33], ["atext", "1"]]
+  ↳ db/seeds.rb:58
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 33], ["atext", "2"]]
+  ↳ db/seeds.rb:59
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 33], ["atext", "3+"]]
+  ↳ db/seeds.rb:60
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 34], ["atext", "HUGE"]]
+  ↳ db/seeds.rb:61
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 34], ["atext", "grow turnips"]]
+  ↳ db/seeds.rb:62
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 35], ["atext", "another castle"]]
+  ↳ db/seeds.rb:63
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 35], ["atext", "this castle"]]
+  ↳ db/seeds.rb:64
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 35], ["atext", "shes dead"]]
+  ↳ db/seeds.rb:65
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 36], ["atext", "rotting out back"]]
+  ↳ db/seeds.rb:66
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 36], ["atext", "in the cow"]]
+  ↳ db/seeds.rb:67
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 36], ["atext", "rotting in the cow out back"]]
+  ↳ db/seeds.rb:68
+  [1m[36mResponse Load (0.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses"[0m
+  ↳ db/seeds.rb:70
+  [1m[36mAnswerChoice Load (0.3ms)[0m  [1m[34mSELECT  "answer_choices".* FROM "answer_choices" WHERE "answer_choices"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ db/seeds.rb:71
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ db/seeds.rb:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ db/seeds.rb:10
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Travis"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Travis"]]
+  ↳ db/seeds.rb:11
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Donald"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Donald"]]
+  ↳ db/seeds.rb:12
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "McNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "McNick"]]
+  ↳ db/seeds.rb:13
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "OldNick"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "OldNick"]]
+  ↳ db/seeds.rb:14
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "BigGreen"], ["LIMIT", 1]]
+  ↳ db/seeds.rb:15
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "BigGreen"]]
+  ↳ db/seeds.rb:15
+  [1m[36mPoll Load (0.6ms)[0m  [1m[34mSELECT "polls".* FROM "polls"[0m
+  ↳ db/seeds.rb:17
+  [1m[36mPoll Create (0.5ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 36], ["title", "foods"]]
+  ↳ db/seeds.rb:18
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 37], ["title", "religions"]]
+  ↳ db/seeds.rb:19
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 37], ["title", "colors"]]
+  ↳ db/seeds.rb:20
+  [1m[36mPoll Create (0.3ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 39], ["title", "iPhone models"]]
+  ↳ db/seeds.rb:21
+  [1m[36mPoll Create (0.2ms)[0m  [1m[32mINSERT INTO "polls" ("user_id", "title") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 40], ["title", "quests"]]
+  ↳ db/seeds.rb:22
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions"[0m
+  ↳ db/seeds.rb:24
+  [1m[36mQuestion Create (0.5ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 26], ["qtext", "Whats your favorite food?"]]
+  ↳ db/seeds.rb:25
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 26], ["qtext", "Do you cook?"]]
+  ↳ db/seeds.rb:26
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 26], ["qtext", "Hot sauce?"]]
+  ↳ db/seeds.rb:27
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 27], ["qtext", "Are you religious?"]]
+  ↳ db/seeds.rb:28
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 27], ["qtext", "Does God exist?"]]
+  ↳ db/seeds.rb:29
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 27], ["qtext", "What happens when we die?"]]
+  ↳ db/seeds.rb:30
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 28], ["qtext", "Whats your favorite color?"]]
+  ↳ db/seeds.rb:31
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 29], ["qtext", "Do you iPhone?"]]
+  ↳ db/seeds.rb:32
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 29], ["qtext", "How many pages is your homescreen?"]]
+  ↳ db/seeds.rb:33
+  [1m[36mQuestion Create (0.3ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 30], ["qtext", "What kind of quest?"]]
+  ↳ db/seeds.rb:34
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 30], ["qtext", "Wheres the princess?"]]
+  ↳ db/seeds.rb:35
+  [1m[36mQuestion Create (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("poll_id", "qtext") VALUES ($1, $2) RETURNING "id"[0m  [["poll_id", 30], ["qtext", "Wheres the beef?"]]
+  ↳ db/seeds.rb:36
+  [1m[36mAnswerChoice Load (0.4ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices"[0m
+  ↳ db/seeds.rb:38
+  [1m[36mAnswerChoice Create (0.7ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 37], ["atext", "pizza"]]
+  ↳ db/seeds.rb:39
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 37], ["atext", "avocado"]]
+  ↳ db/seeds.rb:40
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 38], ["atext", "yes"]]
+  ↳ db/seeds.rb:41
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 38], ["atext", "no"]]
+  ↳ db/seeds.rb:42
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 39], ["atext", "Cholula"]]
+  ↳ db/seeds.rb:43
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 39], ["atext", "never"]]
+  ↳ db/seeds.rb:44
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 39], ["atext", "I guess sometimes"]]
+  ↳ db/seeds.rb:45
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 40], ["atext", "Of course not"]]
+  ↳ db/seeds.rb:46
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 40], ["atext", "Im spiritual"]]
+  ↳ db/seeds.rb:47
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 40], ["atext", "Jewish"]]
+  ↳ db/seeds.rb:48
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 40], ["atext", "Protestant"]]
+  ↳ db/seeds.rb:49
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 41], ["atext", "He must"]]
+  ↳ db/seeds.rb:50
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 41], ["atext", "someones out to get me"]]
+  ↳ db/seeds.rb:51
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 41], ["atext", "no"]]
+  ↳ db/seeds.rb:52
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 42], ["atext", "we get our own planet"]]
+  ↳ db/seeds.rb:53
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 42], ["atext", "idk"]]
+  ↳ db/seeds.rb:54
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 43], ["atext", "blue"]]
+  ↳ db/seeds.rb:55
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 44], ["atext", "iYes"]]
+  ↳ db/seeds.rb:56
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 44], ["atext", "Im not a fascist"]]
+  ↳ db/seeds.rb:57
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 45], ["atext", "1"]]
+  ↳ db/seeds.rb:58
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 45], ["atext", "2"]]
+  ↳ db/seeds.rb:59
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 45], ["atext", "3+"]]
+  ↳ db/seeds.rb:60
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 46], ["atext", "HUGE"]]
+  ↳ db/seeds.rb:61
+  [1m[36mAnswerChoice Create (0.3ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 46], ["atext", "grow turnips"]]
+  ↳ db/seeds.rb:62
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 47], ["atext", "another castle"]]
+  ↳ db/seeds.rb:63
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 47], ["atext", "this castle"]]
+  ↳ db/seeds.rb:64
+  [1m[36mAnswerChoice Create (0.4ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 47], ["atext", "shes dead"]]
+  ↳ db/seeds.rb:65
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 48], ["atext", "rotting out back"]]
+  ↳ db/seeds.rb:66
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 48], ["atext", "in the cow"]]
+  ↳ db/seeds.rb:67
+  [1m[36mAnswerChoice Create (0.2ms)[0m  [1m[32mINSERT INTO "answer_choices" ("question_id", "atext") VALUES ($1, $2) RETURNING "id"[0m  [["question_id", 48], ["atext", "rotting in the cow out back"]]
+  ↳ db/seeds.rb:68
+  [1m[36mResponse Load (0.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses"[0m
+  ↳ db/seeds.rb:70
+  [1m[36mResponse Create (0.6ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 36], ["answer_choice_id", 77]]
+  ↳ db/seeds.rb:71
+  [1m[36mResponse Create (0.3ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 36], ["answer_choice_id", 68]]
+  ↳ db/seeds.rb:72
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 36], ["answer_choice_id", 74]]
+  ↳ db/seeds.rb:73
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 36], ["answer_choice_id", 75]]
+  ↳ db/seeds.rb:74
+  [1m[36mResponse Create (0.4ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 37], ["answer_choice_id", 62]]
+  ↳ db/seeds.rb:75
+  [1m[36mResponse Create (0.3ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 37], ["answer_choice_id", 63]]
+  ↳ db/seeds.rb:76
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 37], ["answer_choice_id", 65]]
+  ↳ db/seeds.rb:77
+  [1m[36mResponse Create (0.4ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 38], ["answer_choice_id", 69]]
+  ↳ db/seeds.rb:78
+  [1m[36mResponse Create (0.4ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 38], ["answer_choice_id", 73]]
+  ↳ db/seeds.rb:79
+  [1m[36mResponse Create (0.3ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 38], ["answer_choice_id", 76]]
+  ↳ db/seeds.rb:80
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 38], ["answer_choice_id", 78]]
+  ↳ db/seeds.rb:81
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 38], ["answer_choice_id", 82]]
+  ↳ db/seeds.rb:82
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 40], ["answer_choice_id", 83]]
+  ↳ db/seeds.rb:83
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 40], ["answer_choice_id", 86]]
+  ↳ db/seeds.rb:84
+  [1m[36mResponse Create (0.2ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 40], ["answer_choice_id", 89]]
+  ↳ db/seeds.rb:85
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:9
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mResponse Load (0.8ms)[0m  [1m[34mSELECT "responses".* FROM "responses"[0m
+  [1m[36mResponse Load (0.3ms)[0m  [1m[34mSELECT  "responses".* FROM "responses" ORDER BY "responses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResponse Load (0.5ms)[0m  [1m[34mSELECT  "responses".* FROM "responses" ORDER BY "responses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mResponse Load (0.5ms)[0m  [1m[34mSELECT  "responses".* FROM "responses" ORDER BY "responses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" INNER JOIN "answer_choices" ON "questions"."id" = "answer_choices"."question_id" WHERE "answer_choices"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  [1m[36mResponse Load (1.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" INNER JOIN "answer_choices" ON "responses"."answer_choice_id" = "answer_choices"."id" WHERE "answer_choices"."question_id" = $1 AND NOT (id = 1)[0m  [["question_id", 43]]
+  [1m[36mResponse Load (0.8ms)[0m  [1m[34mSELECT  "responses".* FROM "responses" ORDER BY "responses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mQuestion Load (0.9ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" INNER JOIN "answer_choices" ON "questions"."id" = "answer_choices"."question_id" WHERE "answer_choices"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  [1m[36mResponse Load (0.7ms)[0m  [1m[34mSELECT "responses".* FROM "responses" INNER JOIN "answer_choices" ON "responses"."answer_choice_id" = "answer_choices"."id" WHERE "answer_choices"."question_id" = $1 AND NOT (responses.id = 1)[0m  [["question_id", 43]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mAnswerChoice Load (0.3ms)[0m  [1m[34mSELECT "answer_choices".* FROM "answer_choices" WHERE "answer_choices"."question_id" = $1[0m  [["question_id", 43]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mResponse Create (0.6ms)[0m  [1m[32mINSERT INTO "responses" ("user_id", "answer_choice_id") VALUES ($1, $2) RETURNING "id"[0m  [["user_id", 36], ["answer_choice_id", 77]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mQuestion Load (0.5ms)[0m  [1m[34mSELECT  "questions".* FROM "questions" INNER JOIN "answer_choices" ON "questions"."id" = "answer_choices"."question_id" WHERE "answer_choices"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  [1m[36mResponse Load (0.5ms)[0m  [1m[34mSELECT "responses".* FROM "responses" INNER JOIN "answer_choices" ON "responses"."answer_choice_id" = "answer_choices"."id" WHERE "answer_choices"."question_id" = $1 AND NOT (responses.id = 16)[0m  [["question_id", 43]]
+  [1m[36mResponse Load (0.8ms)[0m  [1m[34mSELECT "responses".* FROM "responses" INNER JOIN "answer_choices" ON "responses"."answer_choice_id" = "answer_choices"."id" WHERE "answer_choices"."question_id" = $1 AND NOT (responses.id = 16)[0m  [["question_id", 43]]
+  [1m[36mResponse Load (0.9ms)[0m  [1m[34mSELECT "responses".* FROM "responses" INNER JOIN "answer_choices" ON "responses"."answer_choice_id" = "answer_choices"."id" WHERE "answer_choices"."question_id" = $1 AND NOT (responses.id = 1)[0m  [["question_id", 43]]
+  [1m[36mResponse Load (0.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses" INNER JOIN "answer_choices" ON "responses"."answer_choice_id" = "answer_choices"."id" WHERE "answer_choices"."question_id" = $1 AND NOT (responses.id = 1)[0m  [["question_id", 43]]
