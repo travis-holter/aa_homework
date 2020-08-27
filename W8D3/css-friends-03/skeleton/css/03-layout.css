@@ -1,0 +1,25 @@
+/* PHASE 3: Layout */
+
+.content {
+    min-height: 200px;
+    height: 400px;
+    width: 900px;
+    margin: 0 auto;
+}
+
+.content > section {
+    padding: 20px;
+    height: 100%;
+    display: inline-block;
+    border: grey 1px solid;
+}
+
+.content-sidebar {
+    width: 200px;
+    background-color: green;
+}
+
+.content-main {
+    width: 600px;
+    background-color: purple;
+}
