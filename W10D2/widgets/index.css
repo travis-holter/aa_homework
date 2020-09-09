@@ -1,0 +1,41 @@
+#root {
+    /* display: flex; */
+    font-family: "Cinzel Decorative";
+}
+
+#clock {
+    background-color: aqua;
+}
+
+#time {
+    display: flex;
+    justify-content: space-between;
+}
+
+#date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    box-sizing: content-box;
+    width: 18%;
+    border: 5px solid red;
+    border-radius: 25px;
+}
+
+.header:hover {
+    cursor: pointer;
+    border: 5px solid black;
+}
+
+.parent-tabs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.parent-tab-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
