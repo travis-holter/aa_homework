@@ -2,7 +2,16 @@
 # The method should return true if the only common divisor between the two numbers is 1.
 # The method should return false otherwise. For example coprime?(25, 12) is true because
 # 1 is the only number that divides both 25 and 12.
-
+def coprime?(num1, num2)
+    divisors = []
+    (2...num1).each do |factor|
+        divisors << factor if num1 % factor == 0
+    end
+    divisors.each do |factor|
+        return false if num2 % factor == 0
+    end
+    true
+end
 
 p coprime?(25, 12)    # => true
 p coprime?(7, 11)     # => true
